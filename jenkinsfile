@@ -4,6 +4,13 @@ pipeline{
         stage("checkout"){
             steps{
                 sh "echo this is git checkout"
+                sh "sleep 5"
+            }
+        }
+        stage("build"){
+            steps{
+                sh "echo this is build"
+                sh "sleep 5"
             }
         }
     }

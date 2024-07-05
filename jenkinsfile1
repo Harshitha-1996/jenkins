@@ -1,0 +1,14 @@
+pipeline{
+    agent {
+        lable slave1
+    }
+        stages{
+            stage("checkout"){
+                steps{
+                       sh "echo this is git checkout"
+                       sh "sleep 5"
+
+                }
+            }
+        }
+}

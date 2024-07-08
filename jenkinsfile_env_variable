@@ -1,5 +1,5 @@
 pipeline{
-    any agent
+    agent any
     environment{
         APP="frontend"
         DB_URL="192.32.142.123"

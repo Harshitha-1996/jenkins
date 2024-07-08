@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage("checkout"){
+            checkout scmGit(branches: [[name: '*/main'],
+             [name: '*/sub']],
+              extensions: [],
+               userRemoteConfigs: [[url: 'https://github.com/Harshitha-1996/jenkins.git']])
+        }
+        stage("build1"){
+            when{
+
+                  branch "main"
+
+            }
+            steps{
+                sh "ls -lrt"
+            }
+        }
+    }
+    
+}

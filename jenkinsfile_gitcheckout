@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages {
+        stage("checkout with git"){
+            steps{
+                git branch: 'main', url: 'https://github.com/Harshitha-1996/jenkins.git'
+            }
+
+        }
+        stage("build"){
+            steps{
+                sh "ls -lrt"
+            }
+        }
+    }
+}

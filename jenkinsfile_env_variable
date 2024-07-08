@@ -6,10 +6,12 @@ pipeline{
     }
     stages{
         stage("checkou"){
+            steps{
              checkout scmGit(branches: [[name: '*/main']], extensions: [], 
                 userRemoteConfigs: [[credentialsId: 'github',
                  url: 'https://github.com/Harshitha-1996/jenkins.git']])
-        }
+          }
+
         stage("build1"){
             steps{ 
                 script{
@@ -20,4 +22,5 @@ pipeline{
             }
         }
     }
+}
 }

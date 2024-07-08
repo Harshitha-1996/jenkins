@@ -18,6 +18,14 @@ pipeline{
                 sh "ls -lrt"
             }
         }
+        stage("build2"){
+            when{
+                branch "sub"
+            }
+            steps{
+                echo"sub branch"
+            }
+        }
     }
     
 }

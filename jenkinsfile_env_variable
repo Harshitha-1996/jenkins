@@ -1,14 +1,16 @@
 pipeline{
-    any agent
-    environmet{
+    agent any
+    environment{
         APP="frontend"
         DB_URL="192.32.142.123"
     }
     stages{
         stage("checkou"){
+            steps{
              checkout scmGit(branches: [[name: '*/main']], extensions: [], 
                 userRemoteConfigs: [[credentialsId: 'github',
                  url: 'https://github.com/Harshitha-1996/jenkins.git']])
+          }
         }
         stage("build1"){
             steps{ 

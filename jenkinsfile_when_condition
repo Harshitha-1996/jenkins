@@ -29,7 +29,7 @@ pipeline{
         stage("build2"){
             when{
 
-                environment name: 'BRANCH', value: 'sub' 
+                branch 'sub' 
             }
             steps{
                 echo"sub branch"

@@ -17,10 +17,8 @@ pipeline{
         }
         stage("build1"){
             when{
-                not{
 
                   environment name: 'BRANCH', value: 'main' 
-                }
             }
             
             steps{
@@ -30,8 +28,10 @@ pipeline{
         }
         stage("build2"){
             when{
+                not{
 
-                branch '*/sub' 
+                branch '*/sub'
+                } 
             }
             steps{
                 echo"sub branch"

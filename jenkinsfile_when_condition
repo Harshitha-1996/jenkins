@@ -17,6 +17,9 @@ pipeline{
         }
         stage("build1"){
             when{
+                not{
+                    
+                }
 
                   environment name: 'BRANCH', value: 'main' 
 

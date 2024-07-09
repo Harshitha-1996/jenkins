@@ -8,6 +8,7 @@ pipeline{
             checkout scmGit(branches: [[name: '*/sub']], extensions: [], 
                 userRemoteConfigs: [[credentialsId: 'github',
                  url: 'https://github.com/Harshitha-1996/jenkins.git']])
+            }
         }
         stage("build1"){
             when{
@@ -31,4 +32,3 @@ pipeline{
     }
     
     }
-}

@@ -29,7 +29,7 @@ pipeline{
         stage("build2"){
             when{
 
-                branch 'sub' 
+                branch '*/sub' 
             }
             steps{
                 echo"sub branch"

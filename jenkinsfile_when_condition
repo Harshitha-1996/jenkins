@@ -19,11 +19,10 @@ pipeline{
             when{
                 not{
 
-                }
-
                   environment name: 'BRANCH', value: 'main' 
+                }
             }
-            }
+            
             steps{
         
                 sh "ls -lrt"
@@ -39,5 +38,4 @@ pipeline{
             }
         }
     }
-    
-    }
+ss }

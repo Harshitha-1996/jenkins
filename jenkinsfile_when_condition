@@ -12,7 +12,7 @@ pipeline{
             
             checkout scmGit(branches: [[name: "${env.BRANCH}"]], extensions: [], 
                 userRemoteConfigs: [[credentialsId: "${env.CRD_ID}",
-                 url: "${env.CRD_ID}"]])
+                 url: "${env.GIT_U}"]])
             }
         }
         stage("build1"){

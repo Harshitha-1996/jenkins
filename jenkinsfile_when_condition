@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        BRANCH='*/sub'
+        BRANCH='sub'
         CRD_ID='github'
         GIT_U='https://github.com/Harshitha-1996/jenkins.git'
     }

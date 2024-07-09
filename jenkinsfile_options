@@ -1,0 +1,17 @@
+pipeline{
+    agnet any
+    option{
+        timeout(time: 10 , unit: SECONDS)
+        timestaps()
+        retry(1)
+    }
+    stages{
+        stage("checkout"){
+            steps{
+                echo "hello"
+                sh "sleep 60"
+            }
+
+        }
+    }
+}

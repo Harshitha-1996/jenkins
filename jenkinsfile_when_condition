@@ -18,7 +18,7 @@ pipeline{
         stage("build1"){
             when{
 
-                  branch "sub"
+              environment name: 'BRANCH', value:'sub'
             }
             
             steps{

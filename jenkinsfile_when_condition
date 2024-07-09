@@ -30,7 +30,7 @@ pipeline{
             when{
                 not{
 
-                branch '*/sub'
+                branch 'sub'
                 } 
             }
             steps{

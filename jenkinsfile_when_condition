@@ -1,32 +1,41 @@
 pipeline{
     agent any
+    environment{
+        BRANCH='*/sub'
+        CRD_ID='github'
+        GIT_U='https://github.com/Harshitha-1996/jenkins.git'
+    }
     
     stages{
         stage("checkout"){
             steps{
-            checkout scmGit(branches: [name: '*/main'],
-              extensions: [],
-               userRemoteConfigs: [[url: 'https://github.com/Harshitha-1996/jenkins.git']])
+            
+            checkout scmGit(branches: [[name: "${env.BRANCH}"]], extensions: [], 
+                userRemoteConfigs: [[credentialsId: "${env.CRD_ID}",
+                 url: "${env.GIT_U}"]])
             }
         }
         stage("build1"){
             when{
+                not{
 
-                  branch "sub"
-
+                  environment name: 'BRANCH', value: 'main' 
+                }
             }
+            
             steps{
+        
                 sh "ls -lrt"
             } 
         }
         stage("build2"){
             when{
-                branch "main"
+
+                branch '*/sub' 
             }
             steps{
                 echo"sub branch"
             }
         }
     }
-    
-}
+ss }

@@ -12,16 +12,16 @@ pipeline{
         stage("build1"){
             when{
 
-                  branch "main"
+                  branch "sub"
 
             }
             steps{
                 sh "ls -lrt"
-            }
+            } 
         }
         stage("build2"){
             when{
-                branch "sub"
+                branch "main"
             }
             steps{
                 echo"sub branch"

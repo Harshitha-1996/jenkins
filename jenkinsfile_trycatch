@@ -1,4 +1,4 @@
-boolean testStatus = true
+boolean test = true
 pipeline{
     agent any
     triggers{
@@ -19,7 +19,7 @@ pipeline{
                     }catch (Exception e){
                         echo " got an exception"
                         echo "$e"
-                        testStatus = false
+                        test = false
 
                     }
 
@@ -29,7 +29,7 @@ pipeline{
         stage("test"){
             steps{
                 script{
-                    if (testStatus){
+                    if (test){
                         echo "testing"
                     }
                     else{
@@ -39,10 +39,10 @@ pipeline{
               
             }
         }
-        stage("notification"){
+        stage("notification"){sssss
             steps{
                 script{
-                    if(!testStatus){
+                    if(!test){
                         echo "there is an error"
                     }
                     else{

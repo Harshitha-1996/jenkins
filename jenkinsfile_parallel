@@ -43,7 +43,13 @@ pipeline{
         always{
             echo "bulid is succesfull"
         }
-        
+        failure{
+            echo "build is failed"
+        }
+        success{
+            echo "build is succes"
+        }
+
     }
 
 }

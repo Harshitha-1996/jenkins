@@ -7,7 +7,7 @@ pipeline{
         stage("checkout"){
             steps{
             echo "cheecking out"
-            sh "sleep"
+            sh "sleep 2"
             }
         }
         stage("parallel build"){

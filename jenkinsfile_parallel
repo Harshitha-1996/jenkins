@@ -42,6 +42,7 @@ pipeline{
     post{
         always{
             echo "bulid is succesfull"
+            cleanWs()
         }
         failure{
             echo "build is failed"

@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages{
+        stage("BUILD"){
+            steps{
+                echo "build stage"
+            }
+        }
+        stage("test"){
+            steps{
+                catchError(stageResult: 'FAILURE' , buildResult: 'SUCCESS'){
+                echo "test"
+                exit 1
+                }
+            }
+        }
+        stage("deploy"){
+            steps{
+                echo "deploying"
+            }
+        }
+    }
+}

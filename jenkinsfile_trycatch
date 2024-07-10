@@ -1,0 +1,56 @@
+boolean testStatus=true
+pipeline{
+    agent any
+    triggers{
+        cron('* * * * *')
+    }
+    stages{
+        stage("checkout"){
+            steps{
+                echo "checkout stage"
+            }
+        }
+        stage("Build"){
+            steps{
+                script{
+                    try{
+                        echo "Build stage"
+                        sh "sleep"
+                        exit 1
+                    }catch(Exception e){
+                        echo " got an exception"
+                        echo "$e"
+                        testStatus=false
+
+                    }
+
+                }
+            }
+        }
+        stage("test"){
+            steps{
+                scrpit{
+                    if(testStatus==true){
+                        echo "testing"
+                    }
+                    else{
+                        echo "skipping testing"
+                    }
+                }
+              
+            }
+        }
+        stage("notification"){
+            steps{
+                script{
+                    if(testStatus==false){
+                        echo "there is an error"
+                    }
+                    else{
+                        echo "skipping notification"
+                    }
+                }
+            }
+        }
+    }
+}

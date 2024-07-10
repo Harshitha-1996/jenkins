@@ -29,7 +29,7 @@ pipeline{
         }
         stage("test"){
             steps{
-                scrpit{
+                script{
                     if(testStatus==true){
                         echo "testing"
                     }

@@ -10,8 +10,8 @@ pipeline{
             sh "sleep"
             }
         }
-        stage("paralle build"){
-            paralle{
+        stage("parallel build"){
+            parallel{
                 stage("banch1"){
                     steps{
                         echo "firts stage"

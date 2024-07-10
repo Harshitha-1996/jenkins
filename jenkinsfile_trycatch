@@ -2,7 +2,7 @@ boolean testStatus=true
 pipeline{
     agent any
     triggers{
-        cron('* * * * *')
+        pollSCM('* * * * *')
     }
     stages{
         stage("checkout"){

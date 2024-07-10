@@ -1,0 +1,36 @@
+pipeline{
+    agent any
+    triggers{
+        pollSCM('* * * * *')
+    }
+    stages{
+        stage("checkout"){
+            steps{
+            echo "cheecking out"
+            sh "sleep"
+            }
+        }
+        stage("paralle build"){
+            paralle{
+                stage("banch1"){
+                    steps{
+                        echo "firts stage"
+                    }
+                }
+                stage("branch2"){
+                    steps{
+                        echo "second stage"
+                    }
+                }
+                stage("branch3"){
+                    steps{
+                        echo "third stage"
+                    }
+                }
+
+
+            }
+        }
+    }
+
+}

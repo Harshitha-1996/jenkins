@@ -11,14 +11,14 @@ pipeline{
         stage("unit testing"){
             steps{
                 sh '''
-                cd  ./calculator_app
+                cd  ./java_app-main/calculator_app
                 mvn test 
                 '''
                 }
         }
         stage("Integration test"){
             steps{
-                dir('./calculator_app'){
+                dir('./java_app-main/calculator_app'){
                     sh 'mvn integration-test'
                 }
             }
@@ -26,7 +26,7 @@ pipeline{
         stage("Load testing"){
             steps{
                 catchError(buildResult: 'FAILURE' , stageResult:'SUCCESS'){
-                dir('./calculator_app'){
+                dir('./java_app-main/calculator_app'){
                 sh 'mvn clean verify'
                 }
                 }

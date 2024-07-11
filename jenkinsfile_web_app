@@ -10,14 +10,14 @@ pipeline{
         }
         stage("unit testing"){
             steps{
-                dir(./java_app){ 
+                dir(/java_app){ 
                 sh 'mvn test'
                 }
             }
         }
         stage("Integration test"){
             steps{
-                dir(./java_app){
+                dir(/java_app){
                     sh 'mvn integration test'
                 }
             }

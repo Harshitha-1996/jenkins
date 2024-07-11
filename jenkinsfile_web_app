@@ -15,7 +15,6 @@ pipeline{
                 mvn test 
                 '''
                 }
-            }
         }
         stage("Integration test"){
             steps{

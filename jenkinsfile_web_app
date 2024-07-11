@@ -38,7 +38,7 @@ pipeline{
                 script{
                      deploy adapters: [tomcat9(credentialsId:'tomcatharshu', url:'http://13.201.228.183:8080')]
                      contextPath: '/calculator'
-                     war: 'calculator_app/java_app-main/target/calculator.war'
+                     war: '/java_app-main/calculator_app/target/calculator.war'
                 }
             }
         }

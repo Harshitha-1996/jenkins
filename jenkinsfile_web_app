@@ -1,0 +1,31 @@
+pipeline{
+    agent any
+    stages{
+        stage("git checkout"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']],
+                 extensions: [], 
+                 userRemoteConfigs: [[url: 'https://github.com/Harshitha-1996/java_web_app.git']])
+            }
+        }
+        stage("unit testing"){
+            steps{
+                dir(./java_app){ 
+                sh 'mvn test'
+                }
+            }
+        }
+        stage("Integration test"){
+            steps{
+                dir(./java_app){
+                    sh 'mvn integration test'
+                }
+            }
+        }
+        stage("Load testing"){
+            steps{
+                sh 'mvn verify'
+            }
+        }
+    }
+}

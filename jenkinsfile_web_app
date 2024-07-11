@@ -36,7 +36,7 @@ pipeline{
         stage("depoly"){
             steps{
                 script{
-                     deploy adapters: [tomcat9(credentialsId:'tomcatharshu', url:'http://13.201.228.183:8080')]
+                     deploy adapters: [tomcat9(credentialsId:'tomcatharshu', url:'http://13.201.228.183:8080//', path: '')]
                      contextPath: '/calculator'
                      war: '/java_app-main/calculator_app/target/calculator.war'
                 }

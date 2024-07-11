@@ -25,7 +25,9 @@ pipeline{
         }
         stage("Load testing"){
             steps{
+                dir('./java_app'){
                 sh 'mvn verify'
+                }
             }
         }
     }

@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools{
+        maven 'maven_3.9.8'
+    }
     stages{
         stage("git checkout"){
             steps{
@@ -37,7 +40,7 @@ pipeline{
             steps{
                 script{
                      deploy adapters: [tomcat9(credentialID:'tomcatharshu', URL:'http://13.201.228.183:8080')]
-                     contexPath: '/calculator',
+                     contexPath:'./calculator',
                      war:'./java_app/target/calculator.war'
                 }
             }

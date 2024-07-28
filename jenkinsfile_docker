@@ -12,8 +12,9 @@ pipeline{
             steps{
                 dir('./java_app-main/calculator_app'){
                 sh 'ls -lrt'
+                sh 'docker build -t maven_image -f Dockerfile-mvn1 .'
                 }
-                
+
             }
         }
     }

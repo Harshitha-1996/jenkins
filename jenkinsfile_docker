@@ -10,7 +10,10 @@ pipeline{
         }
         stage('build'){
             steps{
+                dir('./java_app-main/calculator_app'){
                 sh 'ls -lrt'
+                }
+                
             }
         }
     }

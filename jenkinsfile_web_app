@@ -47,7 +47,7 @@ pipeline{
             steps{
                 script{
                     if ( DEPLOY_CHOICE == 'YES'){
-                     deploy adapters: [tomcat9(credentialsId:'tomcatharshu', url:'http://15.207.14.255/:8080//', path: '')],
+                     deploy adapters: [tomcat9(credentialsId:'tomcatharshu', url:'http://15.207.14.255:8080/', path: '')],
                      contextPath: '/calculator',
                      war: 'java_app-main/calculator_app/target/calculator.war'
                     }

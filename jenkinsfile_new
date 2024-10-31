@@ -1,0 +1,13 @@
+@Lbirary git_check _
+pipeline{
+    agent any
+    stages{
+        stage(checkout){
+            steps{
+
+                git_check('*/mian','jenkins_app_token','https://github.com/Harshitha-1996/Applications-.git')
+            }
+        }
+
+    }
+}

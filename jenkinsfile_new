@@ -44,7 +44,7 @@ pipeline {
                         credId: 'jenkins_app_token',
                         url: 'https://github.com/Harshitha-1996/Applications'
                     ]
-                    git_check(config)
+                    git_check(config.branchName, config.credId, config.url)
                 }
             }
         }

@@ -5,7 +5,11 @@ pipeline{
         stage(checkout){
             steps{
                 script{
-                git_check('*/main','jenkins_app_token','https://github.com/Harshitha-1996/Applications-.git')
+                   def config = {
+                    branchName = '*/main'
+                    credId = 'jenkins_app_token'
+                    url = 'https://github.com/Harshitha-1996/Applications-.git'
+                   }
                 }
             }
         }

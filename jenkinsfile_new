@@ -1,29 +1,65 @@
-@Library ('git_check') _
-pipeline{
+// @Library ('git_check') _
+// pipeline{
+//     agent any
+//     stages{
+//         stage(checkout){
+//             steps{
+//                 script{
+//                    def config = {
+//                     branchName = '*/main'
+//                     credId = 'jenkins_app_token'
+//                     url = 'https://github.com/Harshitha-1996/Applications-.git'
+//                    }
+//                 }
+//             }
+//         }
+//          stage('sonarqube scanner'){
+//             steps{
+//                 script{
+//                     withSonarQubeEnv('sonar_server')
+//                     sh '''
+//                        sonar-scanner -v
+//                        sonar-scanner 
+//                     '''
+//                 }
+//             }
+//          }
+
+//     }
+// }
+
+
+
+
+
+@Library('git_check') _
+pipeline {
     agent any
-    stages{
-        stage(checkout){
-            steps{
-                script{
-                   def config = {
-                    branchName = '*/main'
-                    credId = 'jenkins_app_token'
-                    url = 'https://github.com/Harshitha-1996/Applications-.git'
-                   }
+    stages {
+        stage('checkout') {
+            steps {
+                script {
+                    def config = [
+                        branchName: '*/main',
+                        credId: 'jenkins_app_token',
+                        url: 'https://github.com/Harshitha-1996/Applications-.git'
+                    ]
+                    git_check(config.branchName, config.credId, config.url)
                 }
             }
         }
-         stage('sonarqube scanner'){
-            steps{
-                script{
-                    withSonarQubeEnv('sonar_server')
-                    sh '''
-                       sonar-scanner -v
-                       sonar-scanner 
-                    '''
+        
+        stage('sonarqube scanner') {
+            steps {
+                script {
+                    withSonarQubeEnv('sonar_server') {
+                        sh '''
+                           sonar-scanner -v
+                           sonar-scanner
+                        '''
+                    }
                 }
             }
-         }
-
+        }
     }
 }

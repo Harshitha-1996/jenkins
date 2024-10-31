@@ -1,4 +1,4 @@
-@Library git_check _
+@Library (git_check) _
 pipeline{
     agent any
     stages{

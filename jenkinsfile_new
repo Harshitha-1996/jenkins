@@ -4,8 +4,9 @@ pipeline{
     stages{
         stage(checkout){
             steps{
-
-                git_check('*/mian','jenkins_app_token','https://github.com/Harshitha-1996/Applications-.git')
+                script{
+                git_check('*/main','jenkins_app_token','https://github.com/Harshitha-1996/Applications-.git')
+                }
             }
         }
 

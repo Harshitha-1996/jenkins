@@ -50,6 +50,7 @@ pipeline {
                 script {
                     withSonarQubeEnv('sonar_server') {
                         sh '''
+                           cd ./flask_app/ip_app-main
                            sonar-scanner -v
                            sonar-scanner
                         '''

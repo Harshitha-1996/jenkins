@@ -40,7 +40,7 @@ pipeline {
                         credId: 'jenkins_app_token',
                         url: 'https://github.com/Harshitha-1996/Applications-.git'
                     ]
-                    gtiCheckout(config)
+                  //  gtiCheckout(config)
                 }
             }
         }
